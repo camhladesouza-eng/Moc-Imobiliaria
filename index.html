@@ -1,76 +1,276 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MOC Imobiliária</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f8f8f8;
-      color: #222;
-    }
-    header {
-      background: #171717;
-      color: white;
-      padding: 24px;
-      text-align: center;
-    }
-    nav {
-      background: #b49a65;
-      padding: 15px;
-      text-align: center;
-    }
-    nav a {
-      color: #171717;
-      margin: 12px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    main {
-      padding: 70px 20px;
-      text-align: center;
-    }
-    .botao {
-      display: inline-block;
-      background: #b49a65;
-      color: #171717;
-      padding: 15px 25px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="MOC Imobiliária. Viver bem começa aqui. Encontre casas, apartamentos e terrenos.">
+<title>MOC Imobiliária | Viver bem começa aqui</title>
+<style>
+:root{--azul:#071e36;--dourado:#c99b53;--claro:#f7f6f3}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;background:var(--claro);color:#182b3d}
+a{text-decoration:none;color:inherit}
+button,select,input{font:inherit}
+button{cursor:pointer}
+header{background:white;padding:14px 6%;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:5;box-shadow:0 2px 12px #0001}
+.marca{font-weight:900;color:var(--azul);font-size:22px;letter-spacing:1px}
+.marca span{color:var(--dourado)}
+nav{display:flex;gap:20px;flex-wrap:wrap;font-size:14px}
+nav a:hover{color:var(--dourado)}
+.hero{min-height:460px;background:linear-gradient(90deg,#071e36f5,#071e3699),url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=85') center/cover;display:flex;align-items:center;padding:60px 8%;color:white}
+.hero h1{font-size:clamp(34px,5vw,60px);max-width:700px;line-height:1.1;margin:12px 0}
+.hero p{max-width:550px;line-height:1.7}
+.dourado{color:#e2b56e}
+.btn{display:inline-block;background:var(--dourado);color:#071e36;border:0;border-radius:6px;padding:14px 22px;font-weight:bold;margin-top:14px}
+.btn:hover{filter:brightness(.94)}
+.container{max-width:1200px;margin:auto;padding:65px 20px}
+.titulo{text-align:center;margin-bottom:30px}
+.titulo h2{font-size:32px;color:var(--azul);margin-bottom:8px}
+.titulo p{color:#64717d}
+.filtros{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;background:white;padding:20px;border-radius:12px;box-shadow:0 5px 24px #0001}
+.filtros select,.filtros input{padding:13px;border:1px solid #ddd;border-radius:6px;width:100%;min-width:0;background:white}
+.filtros button{background:var(--azul);color:white;border:0;border-radius:6px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:35px}
+.card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px #0001}
+.card img{width:100%;height:225px;object-fit:cover}
+.card-body{padding:22px}
+.tag{color:#a87531;font-size:12px;font-weight:bold;text-transform:uppercase}
+.card h3{margin:10px 0;color:var(--azul);font-size:20px}
+.preco{font-size:24px;font-weight:bold;color:var(--azul);margin:16px 0}
+.info{color:#64717d;font-size:14px;line-height:1.7}
+.card button{width:100%;background:var(--azul);color:white;padding:13px;border:0;border-radius:6px}
+.sobre{background:var(--azul);color:white}
+.sobre h2{color:#e2b56e}
+.sobre p{line-height:1.8;max-width:750px}
+.contato{text-align:center}
+.contato p{line-height:1.7}
+footer{background:#061629;color:#ddd;text-align:center;padding:30px 15px;font-size:13px}
+dialog{border:0;border-radius:12px;padding:0;max-width:650px;width:94%;max-height:90vh;overflow:auto}
+dialog::backdrop{background:#000a}
+.modal{padding:24px}
+.modal img{width:100%;height:270px;object-fit:cover;border-radius:8px}
+.modal h2{color:var(--azul)}
+.fechar{float:right;border:0;background:#eee;border-radius:5px;padding:8px 12px}
+.whats{position:fixed;bottom:20px;right:20px;background:#25d366;color:white;border-radius:50px;padding:15px 20px;z-index:6;font-weight:bold;box-shadow:0 5px 20px #0003}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.filtros{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:550px){.grid{grid-template-columns:1fr}.hero{min-height:380px}.filtros{grid-template-columns:1fr}header{justify-content:center}.container{padding:45px 16px}}
+</style>
 </head>
 <body>
-  <header>
-    <h1>MOC IMOBILIÁRIA</h1>
-    
-<img src="Imagem do ChatGPT 31 de out. de 2026, 17_06_30.png" alt="Logo MOC Imobiliária" style="width:220px; max-width:90%; height:auto;">
 
-    <p>Seu próximo imóvel começa aqui.</p>
-  </header>
+<header>
+<a class="marca" href="#inicio">MOC <span>IMOBILIÁRIA</span></a>
+<nav>
+<a href="#inicio">Início</a>
+<a href="#imoveis">Imóveis</a>
+<a href="#sobre">Sobre nós</a>
+<a href="#contato">Contato</a>
+</nav>
+</header>
 
-  <nav>
-    <a href="#inicio">Início</a>
-    <a href="#imoveis">Imóveis</a>
-    <a href="#contato">Contato</a>
-  </nav>
+<section class="hero" id="inicio">
+<div>
+<p class="dourado">MOC IMOBILIÁRIA</p>
+<h1>Viver bem <span class="dourado">começa aqui.</span></h1>
+<p>Encontre o imóvel ideal para sua próxima conquista. Casas, apartamentos e terrenos com atendimento personalizado.</p>
+<a class="btn" href="#imoveis">Explorar imóveis</a>
+</div>
+</section>
 
-  <main id="inicio">
-    <h2>Encontre o imóvel ideal</h2>
-    <p>Casas, apartamentos e terrenos para você.</p>
-    <a class="botao" href="#imoveis">Ver imóveis</a>
-  </main>
+<section class="container" id="imoveis">
+<div class="titulo">
+<h2>Encontre seu próximo imóvel</h2>
+<p>Explore nossas oportunidades de compra e locação.</p>
+</div>
 
-  <section id="imoveis" style="text-align:center;padding:40px">
-    <h2>Nossos imóveis</h2>
-    <p>Em breve, imóveis disponíveis aqui.</p>
-  </section>
+<div class="filtros">
+<select id="tipo">
+<option value="">Todos os tipos</option>
+<option>Casa</option>
+<option>Apartamento</option>
+<option>Terreno</option>
+</select>
+<select id="finalidade">
+<option value="">Comprar ou alugar</option>
+<option>Venda</option>
+<option>Aluguel</option>
+</select>
+<select id="cidade">
+<option value="">Todas as cidades</option>
+<option>Montes Claros</option>
+<option>Pirapora</option>
+<option>Bocaiúva</option>
+</select>
+<input type="number" id="maximo" min="0" placeholder="Preço máximo (R$)">
+<button onclick="filtrar()">Buscar imóveis</button>
+</div>
 
-  <footer id="contato" style="text-align:center;padding:30px">
-    <p>Entre em contato com a MOC Imobiliária</p>
-  </footer>
+<div id="lista" class="grid"></div>
+<p id="vazio" style="display:none;text-align:center;padding:30px">Nenhum imóvel encontrado com esses filtros.</p>
+</section>
+
+<section class="sobre" id="sobre">
+<div class="container">
+<h2>MOC Imobiliária</h2>
+<h3>Mais que imóveis. Novas histórias.</h3>
+<p>Nosso propósito é aproximar pessoas de novas oportunidades, com atendimento humanizado, transparência e dedicação em cada etapa da jornada imobiliária.</p>
+<a class="btn" href="#contato">Fale com a nossa equipe</a>
+</div>
+</section>
+
+<section class="container contato" id="contato">
+<div class="titulo">
+<h2>Vamos encontrar seu imóvel?</h2>
+<p>Converse com nossa equipe e descubra as possibilidades.</p>
+</div>
+<a id="contatoWhats" class="btn" target="_blank" rel="noopener">Conversar pelo WhatsApp</a>
+</section>
+
+<footer>
+<strong>MOC IMOBILIÁRIA</strong>
+<p>Viver bem começa aqui.</p>
+<p>© <span id="ano"></span> MOC Imobiliária. Todos os direitos reservados.</p>
+</footer>
+
+<a id="whatsFlutuante" class="whats" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
+
+<dialog id="detalhes">
+<div class="modal">
+<button class="fechar" onclick="document.getElementById('detalhes').close()">Fechar ✕</button>
+<div id="conteudoDetalhes"></div>
+</div>
+</dialog>
+
+<script>
+// CONFIGURAÇÕES DA IMOBILIÁRIA
+// Troque pelo WhatsApp real, com DDD, apenas números.
+const WHATSAPP = "5538999999999";
+
+// IMÓVEIS DEMONSTRATIVOS
+// Substitua fotos, valores e informações pelos imóveis reais.
+const imoveis = [
+{
+id:1,titulo:"Casa moderna com área gourmet",
+tipo:"Casa",finalidade:"Venda",cidade:"Montes Claros",
+bairro:"Região residencial",preco:480000,
+quartos:3,banheiros:2,area:160,
+foto:"https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80",
+descricao:"Casa com ambientes integrados, espaço gourmet e acabamento contemporâneo."
+},
+{
+id:2,titulo:"Apartamento com varanda",
+tipo:"Apartamento",finalidade:"Venda",cidade:"Montes Claros",
+bairro:"Região central",preco:320000,
+quartos:2,banheiros:2,area:78,
+foto:"https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80",
+descricao:"Apartamento com ambientes confortáveis, varanda e boa distribuição interna."
+},
+{
+id:3,titulo:"Casa com amplo quintal",
+tipo:"Casa",finalidade:"Venda",cidade:"Pirapora",
+bairro:"Área residencial",preco:290000,
+quartos:3,banheiros:2,area:145,
+foto:"https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=900&q=80",
+descricao:"Imóvel espaçoso com quintal e ambientes para toda a família."
+},
+{
+id:4,titulo:"Terreno para construir",
+tipo:"Terreno",finalidade:"Venda",cidade:"Bocaiúva",
+bairro:"Área urbana",preco:95000,
+quartos:0,banheiros:0,area:300,
+foto:"https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80",
+descricao:"Terreno demonstrativo para projeto residencial."
+},
+{
+id:5,titulo:"Apartamento para locação",
+tipo:"Apartamento",finalidade:"Aluguel",cidade:"Montes Claros",
+bairro:"Região residencial",preco:1800,
+quartos:2,banheiros:1,area:65,
+foto:"https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80",
+descricao:"Apartamento funcional com ambientes bem planejados."
+},
+{
+id:6,titulo:"Casa com arquitetura contemporânea",
+tipo:"Casa",finalidade:"Venda",cidade:"Pirapora",
+bairro:"Região residencial",preco:620000,
+quartos:4,banheiros:3,area:220,
+foto:"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80",
+descricao:"Casa ampla com ambientes modernos e espaço para receber."
+}
+];
+
+const dinheiro=n=>new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL",maximumFractionDigits:0}).format(n);
+const linkWhats=mensagem=>"https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(mensagem);
+
+function renderizar(dados){
+const lista=document.getElementById("lista");
+lista.innerHTML="";
+document.getElementById("vazio").style.display=dados.length?"none":"block";
+
+dados.forEach(i=>{
+const card=document.createElement("article");
+card.className="card";
+card.innerHTML=`
+<img src="${i.foto}" alt="${i.titulo}" loading="lazy">
+<div class="card-body">
+<span class="tag">${i.tipo} • ${i.finalidade}</span>
+<h3>${i.titulo}</h3>
+<p class="info">📍 ${i.cidade} — ${i.bairro}</p>
+<p class="info">${i.area} m² ${i.quartos?" • "+i.quartos+" quartos":""} ${i.banheiros?" • "+i.banheiros+" banheiros":""}</p>
+<div class="preco">${dinheiro(i.preco)}${i.finalidade==="Aluguel"?"/mês":""}</div>
+<button type="button">Ver detalhes</button>
+</div>`;
+card.querySelector("button").addEventListener("click",()=>abrirDetalhes(i.id));
+lista.appendChild(card);
+});
+}
+
+function filtrar(){
+const tipo=document.getElementById("tipo").value;
+const finalidade=document.getElementById("finalidade").value;
+const cidade=document.getElementById("cidade").value;
+const maximo=Number(document.getElementById("maximo").value);
+renderizar(imoveis.filter(i=>
+(!tipo||i.tipo===tipo)&&
+(!finalidade||i.finalidade===finalidade)&&
+(!cidade||i.cidade===cidade)&&
+(!maximo||i.preco<=maximo)
+));
+}
+
+function abrirDetalhes(id){
+const i=imoveis.find(x=>x.id===id);
+if(!i)return;
+const area=document.getElementById("conteudoDetalhes");
+area.replaceChildren();
+const foto=document.createElement("img");
+foto.src=i.foto;
+foto.alt=i.titulo;
+const titulo=document.createElement("h2");
+titulo.textContent=i.titulo;
+const info=document.createElement("p");
+info.textContent=`${i.cidade} — ${i.bairro} | ${i.area} m² | ${i.quartos} quartos | ${i.banheiros} banheiros`;
+const descricao=document.createElement("p");
+descricao.textContent=i.descricao;
+const preco=document.createElement("h2");
+preco.textContent=dinheiro(i.preco)+(i.finalidade==="Aluguel"?"/mês":"");
+const contato=document.createElement("a");
+contato.className="btn";
+contato.target="_blank";
+contato.rel="noopener";
+contato.textContent="Tenho interesse neste imóvel";
+contato.href=linkWhats(`Olá! Tenho interesse no imóvel ${i.id}: ${i.titulo}, em ${i.cidade}. Gostaria de mais informações.`);
+area.append(foto,titulo,info,descricao,preco,contato);
+document.getElementById("detalhes").showModal();
+}
+
+const mensagem="Olá! Vim pelo site da MOC Imobiliária e gostaria de atendimento.";
+document.getElementById("contatoWhats").href=linkWhats(mensagem);
+document.getElementById("whatsFlutuante").href=linkWhats(mensagem);
+document.getElementById("ano").textContent=new Date().getFullYear();
+renderizar(imoveis);
+</script>
 </body>
 </html>
