@@ -435,6 +435,33 @@ bairros.forEach(bairro => {
 // }
 
 const imoveis = [];
+const imoveis = [
+  {
+    titulo: "Casa com 3 quartos - Ibituruna",
+    bairro: "Ibituruna",
+    tipo: "Casa",
+    finalidade: "Venda",
+    preco: 650000,
+    imagem: ""
+  },
+  {
+    titulo: "Casa com 2 quartos - Jardim Primavera",
+    bairro: "Jardim Primavera",
+    tipo: "Casa",
+    finalidade: "Venda",
+    preco: 250000,
+    imagem: ""
+  },
+  {
+    titulo: "Casa com 3 quartos - Major Prates",
+    bairro: "Major Prates",
+    tipo: "Casa",
+    finalidade: "Venda",
+    preco: 390000,
+    imagem: ""
+  }
+];
+
 
 function formatarPreco(valor) {
   return new Intl.NumberFormat("pt-BR", {
